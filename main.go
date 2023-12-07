@@ -52,7 +52,7 @@ func (rr *ResultRecord) String() string {
 }
 
 func main() {
-	var verbose bool
+	verbose := true
 	/*
 		Parse command line arguments
 
@@ -60,13 +60,6 @@ func main() {
 		./netcat-tester -f <csv_file> -o <output_file> -v
 
 	*/
-
-	// Check if -v is set
-	if len(os.Args) == 6 && os.Args[5] == "-v" {
-		verbose = true
-	} else {
-		verbose = false
-	}
 
 	// Check if -f and -o are set
 	if len(os.Args) != 5 {
