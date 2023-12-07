@@ -12,13 +12,17 @@ The result are written to a output csv file.
     dst_ip,dst_port
     8.8.8.8,53
     www.google.com,443
+    ```
 
+    ```sh
     ./netcat-tester -f test.csv -o output.csv
     ```
 
     ```sh
-    cat test.csv
-    
+    cat output.csv
+    src_ip,dst_ip,dst_port,success
+    172.21.22.144,8.8.8.8,53,true
+    172.21.22.144,www.google.com,443,true
     ```
 
 ## Build
