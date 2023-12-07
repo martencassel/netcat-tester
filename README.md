@@ -8,6 +8,11 @@ The result are written to a output csv file.
 1. Test network connections specified from csv file. Output to a new csv file.
 
     ```sh
+    cat test.csv
+    dst_ip,dst_port
+    8.8.8.8,53
+    www.google.com,443
+
     ./netcat-tester -f test.csv -o output.csv
     ```
 
