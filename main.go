@@ -52,13 +52,21 @@ func (rr *ResultRecord) String() string {
 }
 
 func main() {
+	var verbose bool
 	/*
 		Parse command line arguments
 
 		Usage:
-		./netcat-tester -f <csv_file> -o <output_file>
+		./netcat-tester -f <csv_file> -o <output_file> -v
 
 	*/
+
+	// Check if -v is set
+	if len(os.Args) == 6 && os.Args[5] == "-v" {
+		verbose = true
+	} else {
+		verbose = false
+	}
 
 	// Check if -f and -o are set
 	if len(os.Args) != 5 {
@@ -115,9 +123,15 @@ func main() {
 		if ok {
 			result.Success = true
 			fmt.Fprintf(out_file, "%s\n", result.String())
+			if verbose {
+				log.Infof("Success: %s %s %s", result.SrcIP, result.DstIP, result.DstPort)
+			}
 		} else {
 			result.Success = false
 			fmt.Fprintf(out_file, "%s\n", result.String())
+			if verbose {
+				log.Infof("Failure: %s %s %s", result.SrcIP, result.DstIP, result.DstPort)
+			}
 		}
 	}
 }
