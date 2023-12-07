@@ -2,8 +2,8 @@ default:
 	go build -o ./dist/netcat-test main.go
 run:
 	rm output.csv||true
-	./dist/netcat-test -f ./test.csv -o output.csv
-	cat output.csv
+	./dist/netcat-test -f ./testdata/test.csv -o ./testdata/output.csv
+	cat ./testdata/output.csv
 
 build-ubuntu-22.04:
 	docker build -t netcat-tester:ubuntu-22.04 -f Dockerfile.ubuntu-22.04 . 
