@@ -11,6 +11,11 @@ The result are written to a output csv file.
     ./netcat-tester -f test.csv -o output.csv
     ```
 
+    ```sh
+    cat test.csv
+    
+    ```
+
 ## Build
 
 

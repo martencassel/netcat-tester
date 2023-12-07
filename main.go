@@ -110,7 +110,7 @@ func main() {
 		}
 		ok, err := Dial(dst_ip, dst_port)
 		if err != nil {
-			log.Fatalf("Error dialing: %v", err)
+			log.Warnf("Error dialing: %v", err)
 		}
 		if ok {
 			result.Success = true
